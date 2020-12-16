@@ -28,3 +28,14 @@ class Event(db.Model):
     created_by = db.Column(db.String(25), nullable=True)
 
     calendar = db.relationship('Calendar')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'calendar_id': self.calendar_id,
+            'name': self.name,
+            'description': self.description,
+            'day': self.day,
+            'created_by': self.created_by,
+            'calendar': self.calendar.to_dict()
+        }
