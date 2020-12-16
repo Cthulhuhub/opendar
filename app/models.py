@@ -21,7 +21,7 @@ class Event(db.Model):
     __tablename__ = 'events'
 
     id = db.Column(db.Integer, primary_key=True)
-    calendar_id = db.Column(db.Integer, nullable=False)
+    calendar_id = db.Column(db.Integer, db.ForeignKey('calendars.id'), nullable=False)
     name = db.Column(db.String(25), nullable=False)
     description = db.Column(db.String(500), nullable=True)
     day = db.Column(db.DateTime, nullable=False)
