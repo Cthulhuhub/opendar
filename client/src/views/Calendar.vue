@@ -5,6 +5,11 @@
         </div>
         <div class="calendar-body">
             <h2>{{state.monthName}}</h2>
+            <div class="calendar-dates">
+                <div class="day" v-for="(x, i) in new Array(state.dayCount)" :key="i">
+                    {{i+1}}
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -74,5 +79,16 @@ export default {
 </script>
 
 <style scoped>
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+}
 
+.day {
+    min-height: 150px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px;
+}
 </style>
